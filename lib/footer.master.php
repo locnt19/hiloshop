@@ -6,7 +6,7 @@
 						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
 						<div class="benefit_content">
 							<h6>giao hàng miễn phí</h6>
-							<p>Tùy thuộc vào loại hóa đơn</p>
+							<p>Tùy thuộc vào loại đơn hàng</p>
 						</div>
 					</div>
 				</div>
@@ -24,7 +24,7 @@
 						<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
 						<div class="benefit_content">
 							<h6>45 ngày đổi trả</h6>
-							<p>Making it Look Like Readable</p>
+							<p>Đổi trả miễn phí</p>
 						</div>
 					</div>
 				</div>
@@ -52,7 +52,7 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-						<h4>Đăng ký nhận bản tin <span style="color: #fe4c50">hilo</span></h4>
+						<h4>Đăng ký nhận bản tin <span style="color: #fe4c50">HiLo</span></h4>
 						<p>Đừng bỏ lỡ hàng ngàn sản phẩm và chương trình siêu hấp dẫn</p>
 					</div>
 				</div>
@@ -106,18 +106,6 @@
 
 </div>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/single_custom.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyA7uiW4ifAvCR6xTjildTFAlKMxN99SozE" async defer></script>
-<script src="js/contact_custom.js"></script>
-<script src="js/categories_custom.js"></script>
-</body>
-
-</html>
+<?php
+	include ("js.master.php");
+	?>
