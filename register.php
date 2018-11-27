@@ -2,10 +2,9 @@
 <html>
 <head>
 	<title>Register</title>
-	<script src="js2/jquery.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css2/style1.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="css2/style2.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="styles/style1.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="styles/style2.css" rel="stylesheet" type="text/css" media="all"/>
 <!-- for-mobile-apps -->
 <!-- for-mobile-apps -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -40,15 +39,15 @@
  <form action="register.php" method="POST">
 		<div class="header">
 				<div class="header-main">
-				       <h1>Register Form</h1>
+				       <h1>Register</h1>
 					<div class="header-bottom">
 						<div class="header-right w3agile">
 							
 							<div class="header-left-bottom agileinfo">
 								
 							 <form action="#" method="post">
-								<input type="text"  value="User name" name="username"/>
-							<input type="password"  value="Password" name="password" />
+								<input type="text"  placeholder="User name" name="username"/>
+							<input type="password"  placeholder="Password" name="password" />
 								
 								<input type="submit" value="Login" name="btn_register">
 							</form>	
@@ -68,5 +67,6 @@
 				</div>
 		</div>
 </form>
+<script src="js/jquery-3.2.1.min.js"></script>
 </body>
 </html>

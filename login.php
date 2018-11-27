@@ -10,16 +10,14 @@ session_start();
 if(isset($_SESSION['dang_nhap'])) {
 	header("Location:index.php");
 }
-	
 ?>
 	
 <html>
 <head>
 <title>Login - HiloShop</title>
-<script src="js2/jquery.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css2/style1.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="css2/style2.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="styles/style1.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="styles/style2.css" rel="stylesheet" type="text/css" media="all"/>
 <!-- for-mobile-apps -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -30,12 +28,12 @@ if(isset($_SESSION['dang_nhap'])) {
 </head>
 <body>
 
-		<?php
-		if(isset($_POST['username']) 
-		&& isset($_POST['password'])) {
+	<?php
+		if(isset($_POST['username']) && isset($_POST['password'])) {
 			require('lib/connection.php');
+
 			# Buoc 2: Tao cau truy van SQL
-			$sql = "SELECT * FROM `tai_khoan` WHERE `username`='".$_POST['username']."' AND `password`='".($_POST['password'])."' ";
+			$sql = "SELECT * FROM `tai_khoan` WHERE `TenTK`='".$_POST['username']."' AND `MatKhau`='".md5(($_POST['password']))."' ";
 			
 			# Buoc 3: thuc thi SQL
 			$result = $conn->query($sql);
@@ -51,7 +49,7 @@ if(isset($_SESSION['dang_nhap'])) {
 				$_SESSION['dang_nhap'] = $user;
 				header("Location:index.php");
 			} else {
-				echo "Tên đăng nhập hoặc mật khẩu chưa đúng";
+				echo "<script>alert('Sai tài khoản hoặc mật khẩu')</script>";
 			}
 		}
 	?>
@@ -60,7 +58,7 @@ if(isset($_SESSION['dang_nhap'])) {
 <!--header start here-->
 		<div class="header">
 				<div class="header-main">
-				       <h1>Login Form</h1>
+				       <h1>Login</h1>
 					<div class="header-bottom">
 						<div class="header-right w3agile">
 							
@@ -99,5 +97,6 @@ if(isset($_SESSION['dang_nhap'])) {
 	</form>
 <!--header end here-->
 <!--footer end here-->
+<script src="js/jquery-3.2.1.min.js"></script>
 </body>
 </html>

@@ -185,7 +185,7 @@ jQuery(document).ready(function($)
     	if($('.timer').length)
     	{
     		// Uncomment line below and replace date
-	    	// var target_date = new Date("Dec 7, 2017").getTime();
+	    	var target_date = new Date("Nov 27, 2018").getTime();
 
 	    	// comment lines below
 	    	var date = new Date();

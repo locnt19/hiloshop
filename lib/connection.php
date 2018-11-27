@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "cua_hang_tbdd_db";
+$dbname = "hiloshop";
 
 # Buoc 1: Tao ket noi
 $conn = new mysqli($servername, $username, $password, $dbname);
