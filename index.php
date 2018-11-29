@@ -21,7 +21,7 @@
 						<div class="main_slider_content">
 							<h5>sản phẩm hot tháng 9</h5>
 							<h1>Nhiều ưu đãi khi mua sản phẩm HOT</h1>
-							<div class="red_button shop_now_button"><a href="single.html">mua ngay</a></div>
+							<div class="red_button shop_now_button"><a href="categories.php">mua ngay</a></div>
 						</div>
 					</div>
 				</div>
@@ -32,23 +32,23 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4">
-						<div class="banner_item align-items-center home-item" style="background-image:url(images/dt1_ipX_black_01.jpg)">
+						<div class="banner_item align-items-center home-item" style="background-image:url(images/dt01_ipX_black_01.jpg)">
 							<div class="banner_category">
-								<a href="categories.html">APPLE</a>
+								<a href="categories.php">APPLE</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="banner_item align-items-center home-item" style="background-image:url(images/dt06_ssN9_black_01.jpg)">
 							<div class="banner_category">
-								<a href="categories.html">ĐIỆN THOẠI</a>
+								<a href="categories.php">ĐIỆN THOẠI</a>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div class="banner_item align-items-center home-item" style="background-image:url(phukien/imagesphukien/tn06_SonyMDRXB550_red_01.jpg)">
+						<div class="banner_item align-items-center home-item" style="background-image:url(images/tn06_SonyMDRXB550_red_01.jpg)">
 							<div class="banner_category">
-								<a href="categories.html">PHỤ KIỆN</a>
+								<a href="categories.php">PHỤ KIỆN</a>
 							</div>
 						</div>
 					</div>
@@ -84,12 +84,12 @@
 							<div class="product-item apple">
 								<div class="product discount product_filter">
 									<div class="product_image">
-										<img src="images/dt1_ipX_black_01.jpg" alt="">
+										<img src="images/dt01_ipX_black_01.jpg" alt="">
 									</div>
 									<div class="favorite favorite_left"></div>
 									<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
 									<div class="product_info">
-										<h6 class="product_name"><a href="single.html">iPhone8 Plus Red</a></h6>
+										<h6 class="product_name"><a href="single.php">iPhone8 Plus Red</a></h6>
 										<div class="product_price">$610.00</div>
 									</div>
 								</div>
@@ -99,7 +99,7 @@
 							<div class="product-item apple">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="images/dt2_ip8_red_01.jpg" alt="">
+										<img src="images/dt02_ip8_red_01.jpg" alt="">
 									</div>
 									<div class="favorite"></div>
 									<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
@@ -172,7 +172,7 @@
 							<div class="product-item phukien">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="phukien/imagesphukien/tn01_airpods_white_01.jpg" alt="">
+										<img src="images/tn01_airpods_white_01.jpg" alt="">
 									</div>
 									<div class="favorite"></div>
 									<div class="product_info">
@@ -186,7 +186,7 @@
 							<div class="product-item phukien">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="phukien/imagesphukien/tn02_JBL_blue_01.jpg" alt="">
+										<img src="images/tn02_JBL_blue_01.jpg" alt="">
 									</div>
 									<div class="favorite"></div>
 									<div class="product_info">
@@ -200,7 +200,7 @@
 							<div class="product-item phukien">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="phukien/imagesphukien/tn03_AKG_black_01.jpg" alt="">
+										<img src="images/tn03_AKG_black_01.jpg" alt="">
 									</div>
 									<div class="favorite"></div>
 									<div class="product_info">
@@ -214,7 +214,7 @@
 							<div class="product-item phukien">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="phukien/imagesphukien/tn06_SonyMDRXB550_red_01.jpg" alt="">
+										<img src="images/tn06_SonyMDRXB550_red_01.jpg" alt="">
 									</div>
 									<div class="favorite"></div>
 									<div class="product_info">
@@ -286,7 +286,7 @@
 									<div class="product-item">
 										<div class="product discount">
 											<div class="product_image">
-												<img src="images/dt1_ipX_white_01.jpg" alt="">
+												<img src="images/dt01_ipX_white_01.jpg" alt="">
 											</div>
 											<div class="favorite favorite_left"></div>
 											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-10%</span></div>
@@ -302,7 +302,7 @@
 									<div class="product-item apple">
 										<div class="product">
 											<div class="product_image">
-												<img src="images/dt2_ip8_gray_01.jpg" alt="">
+												<img src="images/dt02_ip8_gray_01.jpg" alt="">
 											</div>
 											<div class="favorite"></div>
 											<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
@@ -333,7 +333,7 @@
 									<div class="product-item phukien">
 										<div class="product">
 											<div class="product_image">
-												<img src="phukien/imagesphukien/tn06_SonyMDRXB550_white_01.jpg" alt="">
+												<img src="images/tn06_SonyMDRXB550_white_01.jpg" alt="">
 											</div>
 											<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
 											<div class="favorite favorite_left"></div>
@@ -349,7 +349,7 @@
 									<div class="product-item phukien">
 										<div class="product">
 											<div class="product_image">
-												<img src="phukien/imamessacduphong/sdp01_miGen2_black_01.jpg" alt="">
+												<img src="images/sdp01_miGen2_black_01.jpg" alt="">
 											</div>
 											<div class="favorite"></div>
 											<div class="product_info">
@@ -395,7 +395,7 @@
 									<div class="product-item phukien">
 										<div class="product">
 											<div class="product_image">
-												<img src="phukien/imagesphukien/tn01_airpods_white_01.jpg" alt="">
+												<img src="images/tn01_airpods_white_01.jpg" alt="">
 											</div>
 											<div class="favorite"></div>
 											<div class="product_info">
