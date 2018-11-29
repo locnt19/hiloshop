@@ -351,8 +351,10 @@ jQuery(document).ready(function($)
 	        {
 	        	$(this).on('click', function()
 	        	{
-	        		var numSortingText = $(this).text();
+					var numSortingText = $(this).text();
+					console.log("numsortingText = ", numSortingText);
 					var numFilter = ':nth-child(-n+' + numSortingText + ')';
+					console.log("numFilter = ", numFilter);
 	        		$('.num_sorting_text').text($(this).text());
     				$('.product-grid').isotope({filter: numFilter });
 	        	});

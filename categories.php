@@ -1,3 +1,6 @@
+<?php
+	session_start();
+    ?>
 <!DOCTYPE html>
 <html lang="vi">
 	<head>
@@ -16,8 +19,8 @@
 					<!-- Breadcrumbs -->
 					<div class="breadcrumbs d-flex flex-row align-items-center">
 						<ul>
-							<li><a href="index.html">Trang chủ</a></li>
-							<li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Tất cả</a></li>
+							<li><a href="index.php">Trang chủ</a></li>
+							<li class="active"><a href="index.php"><i class="fa fa-angle-right" aria-hidden="true"></i>Tất cả</a></li>
 						</ul>
 					</div>
 					<!-- Sidebar -->
@@ -93,6 +96,7 @@
 												<span class="num_sorting_text" style="margin-left: 48px">Tất cả</span>
 												<i class="fa fa-angle-down"></i>
 												<ul class="sorting_num">
+													<li class="num_sorting_btn"><span>Tất cả</span></li>
 													<li class="num_sorting_btn"><span>6</span></li>
 													<li class="num_sorting_btn"><span>12</span></li>
 													<li class="num_sorting_btn"><span>24</span></li>

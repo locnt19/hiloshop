@@ -1,5 +1,8 @@
+<?php
+	session_start();
+    ?>
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 	<head>
 		<?php
 			include ("lib/header.master.php");

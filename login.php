@@ -1,14 +1,8 @@
-<!--Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <?php
 session_start();
-// Kiểm tra đã đăng nhập chưa?
-if(isset($_SESSION['dang_nhap'])) {
-	header("Location:index.php");
+if(isset($_SESSION['user'])) {
+	echo "<script>window.history.back()</script>";
 }
 ?>
 	
@@ -39,22 +33,24 @@ if(isset($_SESSION['dang_nhap'])) {
 			$result = $conn->query($sql);
 			$n = $result->num_rows;
 			if($n > 0) {
-				$user = $result->fetch_assoc();
+				$row = $result->fetch_assoc();
+				if($row > 0) {
+					$_SESSION['user'] = $row;
+					echo "<script>
+							alert('Đăng nhập thành công');
+							window.history.back();
+						</script>";
+				}
+			}
+			else {
+				echo "<script>alert('Sai tài khoản hoặc mật khẩu')</script>";
 			}
 			# Buoc 4: Dong ket noi
 			$conn->close();
-			
-			if($n > 0) {
-				// Đưa thông tin của người đăng nhập vào session
-				$_SESSION['dang_nhap'] = $user;
-				header("Location:index.php");
-			} else {
-				echo "<script>alert('Sai tài khoản hoặc mật khẩu')</script>";
-			}
 		}
 	?>
 
-	<form method="POST" action="login.php">
+	<form method="POST">
 <!--header start here-->
 		<div class="header">
 				<div class="header-main">
@@ -65,14 +61,14 @@ if(isset($_SESSION['dang_nhap'])) {
 							<div class="header-left-bottom agileinfo">
 								
 							 <form action="#" method="post">
-								<input type="text"  placeholder="User name" name="username"/>
-							<input type="password"  placeholder="Password" name="password" />
+								<input type="text"  placeholder="Tài khoản" name="username"/>
+							<input type="password"  placeholder="Mật khẩu" name="password" />
 								<div class="remember">
 					             <span class="checkbox1">
-									   <label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Remember me</label>
+									   <label class="checkbox"><input type="checkbox" name="" checked=""><i> </i>Ghi nhớ đăng nhập</label>
 								 </span>
 								 <div class="forgot">
-								 	<h6><a href="#">Forgot Password?</a></h6>
+								 	<h6><a href="#">Quên mật khẩu?</a></h6>
 								 </div>
 								<div class="clear"> </div>
 							  </div>
@@ -80,7 +76,7 @@ if(isset($_SESSION['dang_nhap'])) {
 								<input type="submit" value="Login" name="btn_login">
 							</form>	
 							<div class="header-left-top">
-								<div class="sign-up"> <h2>or</h2> </div>
+								<div class="sign-up"> <h2>hoặc</h2> </div>
 							
 							</div>
 							<div class="header-social wthree">

@@ -13,30 +13,38 @@
 					<nav class="navbar">
 						<ul class="navbar_menu">
 							<li><a href="index.php">trang chủ</a></li>
-							<li><a href="categories.html">sản phẩm</a></li>
+							<li><a href="categories.php">sản phẩm</a></li>
 							<li>
-								<a href="single.html">
+								<a href="single.php">
 								<span>giảm giá<sup class="text-danger"><strong>hot</strong></sup></span>
 								</a>
 							</li>
-							<li><a href="contact.html">liên hệ</a></li>
+							<li><a href="contact.php">liên hệ</a></li>
 						</ul>
 						<ul class="navbar_user">
 							<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
 							<li><a href="login.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 							<li class="checkout">
-								<a href="#">
+								<a data-toggle="modal" data-target="#cart" style="cursor: pointer">
 								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 								<span id="checkout_items" class="checkout_items">19</span>
 								</a>
 							</li>
-							<li><a href="#">Logout
+							<li>
 								<?php
-									session_start();
-									unset($_SESSION['dang_nhap']);
-									
+									if(isset($_SESSION['user'])) {
+										?>
+										<a href="#"><?=$_SESSION['user']['TenTK']?></a>
+										<a href="login.php">Logout</a>
+										<?php
+									}
+									else {
+										?>
+										<a href="login.php">Đăng nhập</a>
+										<?php
+									}
 									?>
-								</a>
+							
 							</li>
 						</ul>
 						<!-- Menu responsive -->
