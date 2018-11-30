@@ -129,7 +129,7 @@
 											<div class="product-item apple">
 												<div class="product discount product_filter">
 													<div class="product_image">
-														<img src="<?=$row["HinhAnh"]?>" alt="<?=$row["HinhAnh"]?>">
+														<img src="<?=$row["HinhAnh"]?>" alt="">
 													</div>
 													<div class="favorite favorite_left"></div>
 													<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
@@ -139,7 +139,7 @@
 										<div class="product_price"><?=$row["DonGia"]?> VNĐ</div>
 										</div>
 										</div>
-										<div class="red_button add_to_cart_button"><a href="#">Thêm vào giỏ</a></div>
+										<div class="red_button add_to_cart_button"><a href="checkout.php?them=1&MaSP=<?=$row["MaSP"]?>">Thêm vào giỏ</a></div>
 										</div>
 										</a>
 										<?php 
