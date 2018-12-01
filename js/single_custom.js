@@ -216,16 +216,20 @@ jQuery(document).ready(function($)
 
 			plus.on('click', function()
 			{
-				var x = parseInt(value.text());
-				value.text(x + 1);
+				// var x = parseInt(value.text());
+				// value.text(x + 1);
+				var x = parseInt(value.val());
+				value.val(x + 1);
 			});
 
 			minus.on('click', function()
 			{
-				var x = parseInt(value.text());
+				// var x = parseInt(value.text());
+				var x = parseInt(value.val());
 				if(x > 1)
 				{
-					value.text(x - 1);
+					// value.text(x - 1);
+					value.val(x - 1);
 				}
 			});
 		}

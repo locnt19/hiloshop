@@ -26,7 +26,13 @@
 							<li class="checkout">
 								<a data-toggle="modal" data-target="#cart" style="cursor: pointer">
 								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-								<span id="checkout_items" class="checkout_items">19</span>
+								<?php 
+									if(isset($_SESSION['tong_so_luong'])) {
+									?>
+								<span id="checkout_items" class="checkout_items"><?=$_SESSION['tong_so_luong']?></span>
+								<?php 
+									}
+									?>
 								</a>
 							</li>
 							<li><a href="login.php"><i class="fa fa-user" aria-hidden="true"></i></a></li>
