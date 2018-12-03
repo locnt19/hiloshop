@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 26, 2018 at 09:47 AM
+-- Generation Time: Dec 03, 2018 at 09:20 AM
 -- Server version: 5.7.23
--- PHP Version: 7.2.10
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,52 +25,60 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loai_tai_khoan`
+-- Table structure for table `chi_tiet_hd`
 --
 
-DROP TABLE IF EXISTS `loai_tai_khoan`;
-CREATE TABLE IF NOT EXISTS `loai_tai_khoan` (
-  `MaLoai` int(11) NOT NULL AUTO_INCREMENT,
-  `TenLoai` text COLLATE utf8_unicode_ci NOT NULL,
-  `STT` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`MaLoai`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS `chi_tiet_hd`;
+CREATE TABLE IF NOT EXISTS `chi_tiet_hd` (
+  `MaHD` int(11) NOT NULL,
+  `MaSP` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `SoLuong` int(11) NOT NULL,
+  `DonGia` int(11) NOT NULL,
+  PRIMARY KEY (`MaHD`,`MaSP`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `loai_tai_khoan`
+-- Dumping data for table `chi_tiet_hd`
 --
 
-INSERT INTO `loai_tai_khoan` (`MaLoai`, `TenLoai`, `STT`) VALUES
-(2, 'Normal', 1),
-(3, 'Silver', 1),
-(4, 'Gold', 1),
-(1, 'Staff', 1),
-(0, 'Admin', 1);
+INSERT INTO `chi_tiet_hd` (`MaHD`, `MaSP`, `SoLuong`, `DonGia`) VALUES
+(17, 'dt01', 1, 29990000),
+(17, 'dt03', 7, 23990000),
+(18, 'dt01', 1, 29990000),
+(19, 'dt02', 4, 20990000),
+(20, 'dt02', 1, 20990000),
+(21, 'dt13', 6, 4390000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nhan_vien`
+-- Table structure for table `hoa_don`
 --
 
-DROP TABLE IF EXISTS `nhan_vien`;
-CREATE TABLE IF NOT EXISTS `nhan_vien` (
-  `MaNV` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `hoa_don`;
+CREATE TABLE IF NOT EXISTS `hoa_don` (
+  `MaHD` int(11) NOT NULL AUTO_INCREMENT,
   `HoTen` text COLLATE utf8_unicode_ci NOT NULL,
-  `GioiTinh` int(1) NOT NULL,
+  `SDT` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `NgayGiao` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `DiaChi` text COLLATE utf8_unicode_ci NOT NULL,
-  `ChucVu` int(11) NOT NULL,
-  `MaTK` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`MaNV`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `GhiChu` text COLLATE utf8_unicode_ci,
+  `TongSoLuong` int(11) NOT NULL,
+  `TongThanhTien` int(11) NOT NULL,
+  `STT` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`MaHD`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `nhan_vien`
+-- Dumping data for table `hoa_don`
 --
 
-INSERT INTO `nhan_vien` (`MaNV`, `HoTen`, `GioiTinh`, `DiaChi`, `ChucVu`, `MaTK`) VALUES
-('NV01', 'Nguyễn Thành Lộc', 1, 'Đất Đỏ', 0, 'admin'),
-('NV02', 'Lê Minh Hiếu', 1, 'Bến Tre', 0, 'admin');
+INSERT INTO `hoa_don` (`MaHD`, `HoTen`, `SDT`, `NgayGiao`, `DiaChi`, `GhiChu`, `TongSoLuong`, `TongThanhTien`, `STT`) VALUES
+(17, 'Nguyễn Thành Lộc', '0383303809', '2018-12-03 15:31:04', 'hcm', ' dat do', 8, 197920000, 1),
+(18, '21818', '456456', '2018-12-03 15:47:12', '4645645', ' 646456', 1, 29990000, 1),
+(19, 'ac', '23', '2018-12-03 15:56:23', 'đất đỏ', ' hé lô', 4, 83960000, 1),
+(20, 'loc', '1', '2018-12-03 15:59:29', 'abc', ' ads', 5, 20990000, 1),
+(21, 'locabc', '12313123', '2018-12-03 16:11:18', 'óadlasdasd', ' acnaljsd', 3, 26340000, 1);
 
 -- --------------------------------------------------------
 
@@ -138,8 +146,6 @@ DROP TABLE IF EXISTS `tai_khoan`;
 CREATE TABLE IF NOT EXISTS `tai_khoan` (
   `TenTK` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `MatKhau` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `Mail` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `LoaiTK` int(11) NOT NULL DEFAULT '2',
   `STT` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`TenTK`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -148,9 +154,9 @@ CREATE TABLE IF NOT EXISTS `tai_khoan` (
 -- Dumping data for table `tai_khoan`
 --
 
-INSERT INTO `tai_khoan` (`TenTK`, `MatKhau`, `Mail`, `LoaiTK`, `STT`) VALUES
-('Admin', 'c4ca4238a0b923820dcc509a6f75849b', 'admin@weaponstore.com', 0, 1),
-('user', 'c4ca4238a0b923820dcc509a6f75849b', 'khongcoemail@gmail.com', 2, 1);
+INSERT INTO `tai_khoan` (`TenTK`, `MatKhau`, `STT`) VALUES
+('Admin', 'c4ca4238a0b923820dcc509a6f75849b', 1),
+('user', 'c4ca4238a0b923820dcc509a6f75849b', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
