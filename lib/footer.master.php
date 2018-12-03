@@ -14,8 +14,8 @@
 				<div class="benefit_item d-flex flex-row align-items-center">
 					<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
 					<div class="benefit_content">
-						<h6>Thanh toán đa dạng</h6>
-						<p>Online hoặc Offline</p>
+						<h6>Thanh toán tiện lợi</h6>
+						<p>Thanh toán khi nhận hàng</p>
 					</div>
 				</div>
 			</div>

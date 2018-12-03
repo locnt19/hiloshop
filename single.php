@@ -176,12 +176,26 @@
 			</div>
 		</div>
 		<?php
+			// var_dump($_SESSION['gio_hang']);
 			if(isset($_GET['them']) && isset($_GET['MaSP'])) {
 				$row['SoLuong'] = (int)($_GET['them']);
-				array_push($_SESSION['gio_hang'],$row);
-				$_SESSION['tong_so_luong']+= $row['SoLuong'];
+				$gio_hang = $_SESSION['gio_hang'];
+				for ($i=0; $i < count($gio_hang); $i++) { 
+					if($gio_hang[$i]['MaSP'] == $_GET['MaSP']) {
+						$gio_hang[$i]['SoLuong'] += $row['SoLuong'];
+						break;
+					}
+				}
+				if($i == count($gio_hang)) {
+					// array_push($_SESSION['gio_hang'],$row);
+					$gio_hang[] = $row;
+					$_SESSION['tong_so_luong']+= $row['SoLuong'];
+				}
+				$_SESSION['gio_hang'] = $gio_hang;
 				// $count += $row['SoLuong'];
 				// var_dump($count);
+				// var_dump($gio_hang);
+				// var_dump($_SESSION['gio_hang']);
 				echo "<script>alert('Thêm thành công')</script>";
 			}
 			include ("lib/footer.master.php");
