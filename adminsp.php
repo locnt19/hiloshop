@@ -180,23 +180,34 @@
           <thead>
             <tr>
               <th>STT</th>
-              <th>Tên đăng nhập</th>
-              <th>Mật khẩu</th>
+              <th>Mã sp<th>
+              <th>NSX</th>
+              <th>Loại SP</th>
+              <th>Đơn giá</th>
+              <th>Bảo hành</th>
+              <th>Số lượng tồn</th>
+              <th>Hình ảnh</th>
             </tr>
           </thead>
           <tbody>
           <?php
             $stt = 1 ;
-            $sql = "SELECT * FROM tai_khoan where STT = 1";
+            $sql = "SELECT * FROM san_pham where STT = 1";
             // thực thi câu $sql với biến conn lấy từ file connection.php
             $query = mysqli_query($conn,$sql);
             while ($data = mysqli_fetch_array($query)) {
           ?>
             <tr>
               <th scope="row"><?php echo $stt++ ?></th>
-              <td><?php echo $data["TenTK"]; ?></td>
-              <td><?php echo $data["MatKhau"]; ?></td>             
-             <td><a href="chinhsua.php?TenTK=<?php echo $data["TenTK"]; ?>">Sửa</a> <a href="chinhsua.php?TenTK=<?php echo $data["TenTK"]; ?>">Xóa</a></td>
+              <td><?php echo $data["MaSP"]; ?></td> 
+              <td><?php echo $data["TenSP"]; ?></td>  
+              <td><?php echo $data["NSX"]; ?></td>  
+              <td><?php echo $data["LoaiSP"]; ?></td>
+              <td><?php echo $data["DonGia"]; ?></td> 
+              <td><?php echo $data["BaoHanh"]; ?></td>  
+              <td><?php echo $data["SoLuongTon"]; ?></td>  
+              <td><?php echo $data["HinhAnh"]; ?></td>  
+             <td><a href="chinhsuasp.php?MaSP=<?php echo $data["MaSP"]; ?>">Sửa</a> <a href="chinhsuasp.php?MaSP=<?php echo $data["MaSP"]; ?>">Xóa</a></td>
             </tr>
           <?php
             }

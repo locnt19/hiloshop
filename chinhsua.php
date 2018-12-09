@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,7 +20,7 @@
 
     <!-- Custom Fonts -->
     <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+
 </head>
 
 <body>
@@ -169,43 +169,62 @@
         </nav>
 
         <div id="page-wrapper">
-        	<?php
-			    require("lib/connection.php");
-			?>
-			<div class="container">
-      <div class="row">
-        <h3> Quản lý thành viên</h3>
-        <table class="table">
-          <caption>Danh sách thành viên đã đăng ký</caption>
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Tên đăng nhập</th>
-              <th>Mật khẩu</th>
-            </tr>
-          </thead>
-          <tbody>
-          <?php
-            $stt = 1 ;
-            $sql = "SELECT * FROM tai_khoan where STT = 1";
-            // thực thi câu $sql với biến conn lấy từ file connection.php
-            $query = mysqli_query($conn,$sql);
-            while ($data = mysqli_fetch_array($query)) {
-          ?>
-            <tr>
-              <th scope="row"><?php echo $stt++ ?></th>
-              <td><?php echo $data["TenTK"]; ?></td>
-              <td><?php echo $data["MatKhau"]; ?></td>             
-             <td><a href="chinhsua.php?TenTK=<?php echo $data["TenTK"]; ?>">Sửa</a> <a href="chinhsua.php?TenTK=<?php echo $data["TenTK"]; ?>">Xóa</a></td>
-            </tr>
-          <?php
-            }
-          ?>
-          </tbody>
-        </table>
-      </div>
- 
-    </div><!-- /.container -->
+            <div class="container">
+              <div class="row">
+                <?php
+                    require_once("lib/connection.php");
+                        if(isset($_POST["save"])){
+                            if (isset($_GET['TenTK'])) {
+                                $TenTK = $_GET['TenTK'];
+                                var_dump($TenTK);
+                                $sql = "UPDATE tai_khoan set MatKhau = '".md5($_POST['MatKhau'])."'  where TenTK = '$TenTK'";
+                                var_dump($TenTK);
+                                var_dump(md5($_POST['MatKhau']));
+                                mysqli_query($conn, $sql);
+                                var_dump($sql);
+                            }  
+                        }
+                        if(isset($_POST["del"])){
+                            if (isset($_GET['TenTK'])) {
+                                $TenTK = $_GET['TenTK'];
+                                var_dump($TenTK);
+                                $sql = "UPDATE tai_khoan set STT = 0  where TenTK = '$TenTK'";
+                                var_dump($TenTK);
+                                var_dump(md5($_POST['MatKhau']));
+                                mysqli_query($conn, $sql);
+                                var_dump($sql);
+                            }  
+                        }
+                    //if (isset($_GET["TenTK"])) {
+                        //thực hiện việc lấy thông tin user
+                        //$TenTK = $_GET["TenTK"];
+                        //var_dump($TenTK);
+                        //$sql = "select * from users where TenTK = $TenTK";
+                        //$query = mysqli_query($conn, $sql);
+                        //while ( $data = mysqli_fetch_array($query) ) {
+                            //$TenTK = $data["TenTK"];
+                            //$MatKhau = $data["MatKhau"];
+                        //}
+                    //}
+                ?>
+                <h3> Thông tin thành viên</h3>
+                <form method="POST" name="fr_update">
+                    <table class="table">
+                      <caption>Danh sách thành viên đã đăng ký</caption>
+                        <!--<input type="hidden" name="TenTK" value="<?php echo $TenTK; ?>">-->
+                        <tr><td>Họ tên : </td><td><input type="text" name="TenTK" value="<?php echo $TenTK; ?>" /></td></tr>
+                        <tr><td>Mật khẩu : </td><td><input type="text" name="MatKhau" value=""/></td></tr>
+                        <tr><td colspan="2"><input type="submit" name="save" value="Lưu thông tin"></td></tr>
+                        <tr><td colspan="2"><input type="submit" name="del" value="Xóa tài khoản"></td></tr>
+                    </table>
+                </form>
+              </div>
+         
+            </div><!-- /.container -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
     <!-- /#wrapper -->
 
     <!-- jQuery -->

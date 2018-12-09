@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,7 +20,7 @@
 
     <!-- Custom Fonts -->
     <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
+
 </head>
 
 <body>
@@ -169,43 +169,68 @@
         </nav>
 
         <div id="page-wrapper">
-        	<?php
-			    require("lib/connection.php");
-			?>
-			<div class="container">
-      <div class="row">
-        <h3> Quản lý thành viên</h3>
-        <table class="table">
-          <caption>Danh sách thành viên đã đăng ký</caption>
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Tên đăng nhập</th>
-              <th>Mật khẩu</th>
-            </tr>
-          </thead>
-          <tbody>
-          <?php
-            $stt = 1 ;
-            $sql = "SELECT * FROM tai_khoan where STT = 1";
-            // thực thi câu $sql với biến conn lấy từ file connection.php
-            $query = mysqli_query($conn,$sql);
-            while ($data = mysqli_fetch_array($query)) {
-          ?>
-            <tr>
-              <th scope="row"><?php echo $stt++ ?></th>
-              <td><?php echo $data["TenTK"]; ?></td>
-              <td><?php echo $data["MatKhau"]; ?></td>             
-             <td><a href="chinhsua.php?TenTK=<?php echo $data["TenTK"]; ?>">Sửa</a> <a href="chinhsua.php?TenTK=<?php echo $data["TenTK"]; ?>">Xóa</a></td>
-            </tr>
-          <?php
-            }
-          ?>
-          </tbody>
-        </table>
-      </div>
- 
-    </div><!-- /.container -->
+            <div class="container">
+              <div class="row">
+                <?php
+                    require_once("lib/connection.php");
+                        if(isset($_POST["save"])){
+                            if (isset($_GET['MaSP'])) {
+                                $MaSP = $_GET['MaSP'];
+                                var_dump($MaSP);
+                                $sql = "UPDATE san_pham set TenSP = '".($_POST['TenSP'])."',NSX = '".($_POST['NSX'])."',LoaiSP = '".($_POST['LoaiSP'])."',DonGia = '".($_POST['DonGia'])."',BaoHanh = '".($_POST['BaoHanh'])."',SoLuongTon = '".($_POST['SoLuongTon'])."'  where MaSP = '$MaSP'";
+                                var_dump($_POST['NSX']);
+                                var_dump($_POST['LoaiSP']);
+                                var_dump($_POST['DonGia']);
+                                var_dump($_POST['BaoHanh']);
+                                var_dump($_POST['SoLuongTon']);
+                                mysqli_query($conn, $sql);
+                                var_dump($sql);
+                            }  
+                        }
+                        if(isset($_POST["del"])){
+                            if (isset($_GET['MaSP'])) {
+                                $MaSP = $_GET['MaSP'];
+                                var_dump($MaSP);
+                                $sql = "UPDATE san_pham set STT = 0  where MaSP = '$MaSP'";
+                                var_dump($MaSP);
+                                mysqli_query($conn, $sql);
+                                var_dump($sql);
+                            }  
+                        }
+                    //if (isset($_GET["TenTK"])) {
+                        //thực hiện việc lấy thông tin user
+                        //$TenTK = $_GET["TenTK"];
+                        //var_dump($TenTK);
+                        //$sql = "select * from users where TenTK = $TenTK";
+                        //$query = mysqli_query($conn, $sql);
+                        //while ( $data = mysqli_fetch_array($query) ) {
+                            //$TenTK = $data["TenTK"];
+                            //$MatKhau = $data["MatKhau"];
+                        //}
+                    //}
+                ?>
+                <h3> Thông tin thành viên</h3>
+                <form method="POST" name="fr_update">
+                    <table class="table">
+                      <caption>Danh sách Sản phẩm</caption>
+                        <!--<input type="hidden" name="TenTK" value="<?php echo $TenTK; ?>">-->
+                        <tr><td>Tên sp: </td><td><input type="text" name="TenSP" value="" /></td></tr>
+                        <tr><td>NSX : </td><td><input type="text" name="NSX" value=""/></td></tr>
+                        <tr><td>Loại SP : </td><td><input type="text" name="LoaiSP" value="" /></td></tr>
+                        <tr><td>Đơn giá : </td><td><input type="text" name="DonGia" value=""/></td></tr>
+                        <tr><td>Bảo hành  : </td><td><input type="text" name="BaoHanh" value="" /></td></tr>
+                        <tr><td>Số lượng tồn : </td><td><input type="text" name="SoLuongTon" value=""/></td></tr>                       
+                        <tr><td colspan="2"><input type="submit" name="save" value="Lưu thông tin"></td></tr>
+                        <tr><td colspan="2"><input type="submit" name="del" value="Xóa"></td></tr>
+                    </table>
+                </form>
+              </div>
+         
+            </div><!-- /.container -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
     <!-- /#wrapper -->
 
     <!-- jQuery -->
